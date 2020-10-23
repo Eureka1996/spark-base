@@ -1,0 +1,3 @@
+# Project exclude paths
+/spark-core/target/
+/spark-core-scala/target/
