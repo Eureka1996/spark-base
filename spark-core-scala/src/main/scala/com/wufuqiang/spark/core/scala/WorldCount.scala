@@ -5,7 +5,7 @@ import org.apache.spark.{SparkConf, SparkContext}
 
 object WorldCount {
   def main(args: Array[String]): Unit = {
-    val conf = new SparkConf().setAppName("").setMaster("local")
+    val conf = new SparkConf().setAppName("wufuqiang").setMaster("local")
     val sc = new SparkContext(conf)
 
     val row: RDD[String] = sc.textFile("/Users/user/myproject/spark-base/spark-core-test.data")

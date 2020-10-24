@@ -1,3 +1,5 @@
 # Project exclude paths
 /spark-core/target/
 /spark-core-scala/target/
+/spark-mllib/target/
+*.iml
