@@ -7,12 +7,9 @@ import org.apache.spark.sql.{DataFrame, Row, SparkSession}
 
 
 object ItemCf {
-
-
-
   def main(args: Array[String]): Unit = {
 
-    val sparkConf = new SparkConf().setAppName("ItemCf").setMaster("local")
+    val sparkConf = new SparkConf().setAppName("wufq")//.setMaster()
 
     val spark = SparkSession.builder()
       .config(sparkConf).getOrCreate()
@@ -20,7 +17,7 @@ object ItemCf {
     import spark.implicits._
 
     val schemas = Seq("userId","itemId","categoryId","behaviorType","timestamp")
-    val userBebaviorDf: DataFrame = spark.read.csv("/Volumes/samsung/UserBehaviorTemp.csv").toDF(schemas:_*)
+    val userBebaviorDf: DataFrame = spark.read.csv(args(0)).toDF(schemas:_*)
     userBebaviorDf.createOrReplaceTempView("userBehavior")
     val userItemScoreDf: DataFrame = spark.sql(
       """
